@@ -1,0 +1,10 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/favicon.ico"
+  },
+  "response": {
+    "status": 404,
+    "bodyFileName": "404.html"
+  }
+}

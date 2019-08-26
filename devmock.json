@@ -1,0 +1,42 @@
+{
+  "journalDir": "journal",
+  "devices": [
+    {
+      "name": "device1",
+      "ip": "127.0.0.1",
+      "info": {
+        "os_type": "Linux",
+        "version": "4.9.0-3-amd64 #1 SMP Debian 4.9.30-2+deb9u5 (2017-09-19) x86_64 GNU/Linux"
+      },
+      "interfaces": [
+        {
+          "type": "web",
+          "serverName": "Mock Server",
+          "http": 8080,
+          "https": 8443,
+          "mappingsDir": "mappings",
+          "mappings": [
+            "favicon.json",
+            "test.json"
+          ]
+        },
+        {
+          "type": "ssh",
+          "port": 2022,
+          "mappingsDir": "mappings",
+          "mappings": [
+            "cli.json"
+          ]
+        },
+        {
+          "type": "tty",
+          "port": 2023,
+          "mappingsDir": "mappings",
+          "mappings": [
+            "cli.json"
+          ]
+        }
+      ]
+    }
+  ]
+}

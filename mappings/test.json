@@ -1,0 +1,18 @@
+{
+  "request": {
+    "url": "/api/test",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "result": {
+        "field1": 1,
+        "field2": 2
+      }
+    }
+  }
+}

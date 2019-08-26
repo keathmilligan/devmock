@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+}
+
+group 'net.keathmilligan'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.12
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation(
+            'org.apache.logging.log4j:log4j-api:2.11.1',
+            'org.apache.logging.log4j:log4j-core:2.11.1',
+            'org.apache.logging.log4j:log4j-slf4j-impl:2.11.1',
+            'com.github.tomakehurst:wiremock:2.18.0',
+            'commons-cli:commons-cli:1.4',
+            'com.google.code.gson:gson:2.8.5',
+            'com.github.spullara.mustache.java:compiler:0.9.5')
+    implementation('org.apache.sshd:apache-sshd:2.3.0') {
+        exclude group: 'org.slf4j', module: 'slf4j-jdk14'
+        exclude group: 'org.apache.sshd', module: 'sshd-netty'
+        exclude group: 'org.apache.sshd', module: 'sshd-mina'
+    }
+    testCompile 'junit:junit:4.12'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'net.keathmilligan.devmock.Main',
+                'Multi-Release': 'true'
+        )
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "welcomeFile": "welcome.txt",
+  "eol": "\r\n",
+  "prompt": "$ ",
+  "commands": [
+    {
+      "command": "test",
+      "response": "This is a test command"
+    },
+    {
+      "command": "uname -a",
+      "response": "{{info.os_type}} {{name}} {{info.version}}"
+    }
+  ],
+  "notFound": "-bash: {{command}}: command not found"
+}
