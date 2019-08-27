@@ -25,17 +25,20 @@ dependencies {
         exclude group: 'org.apache.sshd', module: 'sshd-netty'
         exclude group: 'org.apache.sshd', module: 'sshd-mina'
     }
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
 }
 
-jar {
+task fatJar(type: Jar) {
     manifest {
         attributes(
                 'Main-Class': 'net.keathmilligan.devmock.Main',
                 'Multi-Release': 'true'
         )
     }
+
     from {
-        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
+
+    with jar
 }
